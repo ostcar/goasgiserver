@@ -1,8 +1,8 @@
 geiss
 =====
 
-geiss is a protocol server defined by the asgi specs. It can be used for a
-django channels project as replacement for daphne.
+Geiss is a protocol server defined by the asgi specs. It can be used for a
+Django Channels project as replacement for daphne.
 
 See https://channels.readthedocs.io/en/latest/asgi.html for more information.
 
@@ -47,7 +47,7 @@ geiss.
 Serving static files
 --------------------
 
-geiss can serve static files. You should not do this in production but use
+Geiss can serve static files. You should not do this in production but use
 a webserver like nginx or Apache HTTP Server as proxy to geiss and let them
 serve the static files. But if you can't use a webserver before geiss, then
 you should use this feature. If you don't, your static files are still
