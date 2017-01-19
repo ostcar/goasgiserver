@@ -3,11 +3,10 @@ language: go
 services:
   - redis-server
 
-env:
-- GOFILES=$(find . -type f -name '*.go' -not -path "./vendor/*")
-- GOPACKAGES=$(go list ./... | grep -v /vendor/)
+install:
+- go get -u github.com/alecthomas/gometalinter
 
 script:
-- goimports -d $GOFILES | tee | read && echo "Please run goimports to fix the code style" 1>&2 && false
+- goimports -d $(find . -type f -name '*.go' -not -path "./vendor/*") | tee | read && echo "Please run goimports to fix the code style" 1>&2 && false
 - gometalinter --vendor --disable-all --enable=vet --enable=vetshadow --enable=golint --enable=ineffassign --enable=goconst --tests ./...
-- go test $GOPACKAGES
+- go test $(go list ./... | grep -v /vendor/)
