@@ -1,4 +1,4 @@
-geiss
+Geiss
 =====
 
 Geiss is a protocol server defined by the asgi specs. It can be used for a
@@ -41,23 +41,23 @@ for a list of all options.
 
 Geiss needs a channel backend to run. The only channel backend that is
 supported right now is Redis. So you have to install and start Redis to run
-geiss.
+Geiss.
 
 
 Serving static files
 --------------------
 
 Geiss can serve static files. You should not do this in production but use
-a webserver like nginx or Apache HTTP Server as proxy to geiss and let them
-serve the static files. But if you can't use a webserver before geiss, then
+a webserver like nginx or Apache HTTP Server as proxy to Geiss and let them
+serve the static files. But if you can't use a webserver before Geiss, then
 you should use this feature. If you don't, your static files are still
 served through the channel layer, but this is probably slower.
 
-To configure geiss to serve static files, collected with
+To configure Geiss to serve static files, collected with
 
     $ python manage.py collectstatic
 
-start geiss with the option `--static` that can be used multiple times:
+start Geiss with the option `--static` that can be used multiple times:
 
     $ geiss --static /static/collected-static --static /media/path/to/media/
 
@@ -81,11 +81,11 @@ You can test it with the follwing commands:
 Then start a webserver and connect to localhost:8000.
 
 
-Difference between daphne and geiss
+Difference between daphne and Geiss
 -----------------------------------
 
-The main difference between daphne and geiss is that daphne is written in
-Python using Twisted and geiss is written in Go. As far as I know, Twisted
+The main difference between daphne and Geiss is that daphne is written in
+Python using Twisted and Geiss is written in Go. As far as I know, Twisted
 is single threaded and therefore daphne runs only one one CPU. Geiss on the
 other hand starts an many threads, as there are CPU cores. Of cause, you
 can start more then one daphne, but you have to use an individual tcp port
