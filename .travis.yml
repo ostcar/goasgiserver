@@ -11,6 +11,6 @@ install:
 - go get -u github.com/golang/lint/golint
 
 script:
-- goimports -d $(find . -type f -name '*.go' -not -path "./vendor/*") | tee | read && echo "Please run goimports to fix the code style" 1>&2 && false
+- goimports -d $(find . -type f -name '*.go' -not -path "./vendor/*") | tee | read && echo "Please run goimports to fix the code style" 1>&2 && false || true
 - gometalinter --vendor --disable-all --enable=vet --enable=vetshadow --enable=golint --enable=ineffassign --enable=goconst --tests ./...
 - go test $(go list ./... | grep -v /vendor/)
